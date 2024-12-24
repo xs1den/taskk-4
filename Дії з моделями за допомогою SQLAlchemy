@@ -1,0 +1,19 @@
+Додавання книги:
+new_book = Book(title="1984", author="George Orwell", year=1949, genre="Dystopian")
+db.session.add(new_book)
+db.session.commit()
+
+Отримання всіх книг:
+books = Book.query.all()
+for book in books:
+    print(book.title, book.author)
+
+Оновлення книги:
+book = Book.query.get(1)  # Отримуємо книгу з ID=1
+book.title = "Animal Farm"
+db.session.commit()
+
+Видалення книги:
+book = Book.query.get(1)  # Отримуємо книгу з ID=1
+db.session.delete(book)
+db.session.commit()
